@@ -13,7 +13,6 @@ from shapes.rectangle import Rectangle
 from shapes.circle import Circle
 from shapes.triangle import Triangle
 
-
 def main(argv):
     """
     Execution starts here.
@@ -26,7 +25,6 @@ def main(argv):
     rectangles = get_rectangles("inputs/rectangle.json")
     circles = get_circles("inputs/circle.yml")
     triangles = get_triangles("inputs/triangle.json")
-
     # Combine both shape types into one list
     general_shapes = rectangles + circles + triangles
 
@@ -129,20 +127,18 @@ def get_triangles(filename):
             raise
 
     # Manually iterate over the JSON dictionaries in the list
-    # of triangles. Create a new Triangle object for each one
+    # of triangles. Create a new triangle object for each one
     # and add it to the list.
     triangle_objects = []
     for tri in data["triangle_list"]:
-        length = tri["length"]
-        height = tri['height']
-        width = tri["width"]
-
-        new_triangle = Triangle(length, height, width)
+        a = tri["a"]
+        b = tri["b"]
+        c = tri["c"]
+        new_triangle = Triangle(a, b, c)
         triangle_objects.append(new_triangle)
 
-    # Return the list of Triangle objects
+    # Return the list of triangle objects
     return triangle_objects
-
 
 # If the main.py file was directly run from the shell, invoke
 # the main function.
