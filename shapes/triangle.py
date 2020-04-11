@@ -11,10 +11,8 @@ from math import sqrt
 
 class Triangle(Shape):
     """
-    Represents a Triangle shape, and contains a length value
-    and width value.
+    Represents a Triangle shape, and contains side "a", side "b", and side "c" values
     """
-    decimal_places = 2
 
     def __init__(self, a, b, c):
         self.a = a
@@ -23,7 +21,7 @@ class Triangle(Shape):
 
     def area(self):
         """
-        Compute the area using the formula 1/2 * length * width
+        Compute the area using the Heron's formula: a=sqrt(s(s-a)(s-b)(s-c)
         """
         p = (self.a + self.b + self.c) / 2
         q = p*(p-self.a)*(p-self.b)*(p-self.c)
@@ -33,6 +31,6 @@ class Triangle(Shape):
 
     def perimeter(self):
         """
-        Compute the perimeter using the formula length + width + height
+        Compute the perimeter using the formula: sum of sides,  p = a + b + c
         """
         return self.a + self.b + self.c
